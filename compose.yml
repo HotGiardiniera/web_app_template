@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  app_db:
+  web_app_db:
     image: postgres:16
-    container_name: app_db
+    container_name: web_app_db
     command: [ "postgres", "-c", "log_statement=all", "-c", "log_destination=stderr" ]
     volumes:
       - ./.pgdata/db:/var/lib/postgresql/data
@@ -32,5 +32,5 @@ services:
     environment:
       ENV: "LOCAL"
     depends_on:
-      app_db:
+      web_app_db:
         condition: service_healthy

@@ -17,7 +17,7 @@ COPY docker/entrypoint.sh /entrypoint.sh
 COPY docker/docker-bashrc /root/.bashrc
 RUN chmod +x /entrypoint.sh
 
-ENV PYTHONPATH=/api
+ENV PYTHONPATH=/web
 
 ENTRYPOINT ["/entrypoint.sh"]
 

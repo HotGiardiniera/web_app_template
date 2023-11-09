@@ -1,7 +1,7 @@
 DC=docker compose
 D=docker
 
-CONTAINER?=app
+CONTAINER?=web_app
 
 
 
