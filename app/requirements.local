@@ -1,0 +1,3 @@
+# For local environment only
+pip-tools
+uvicorn==0.24.0

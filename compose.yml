@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  app_db:
+    image: postgres:16
+    container_name: app_db
+    command: [ "postgres", "-c", "log_statement=all", "-c", "log_destination=stderr" ]
+    volumes:
+      - ./.pgdata/db:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_USER: chris
+      POSTGRES_PASSWORD: realpassword
+      POSTGRES_DB: local
+    ports:
+      - "54322:5432"
+    healthcheck:  # Check that we can log into our database
+      test: [ "CMD-SHELL", "pg_isready -U chris -d local" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web_app:
+    container_name: web_app
+    build:
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./app:/web/app/
+    ports:
+      - "5002:5002"
+    tty: true
+    stdin_open: true
+    environment:
+      ENV: "LOCAL"
+    depends_on:
+      app_db:
+        condition: service_healthy

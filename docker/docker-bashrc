@@ -1,0 +1,7 @@
+# shell
+alias lla='ls -alf'
+alias ll='ls -l'
+
+# Make the shell pretty
+export LS_OPTIONS='--color=auto'
+export PS1="\e[0;32m\u@\e[0;36mapi\e[0;36m:\w\a \e[0m$ "
