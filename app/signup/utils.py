@@ -4,6 +4,10 @@ from argon2.exceptions import InvalidHashError, VerifyMismatchError
 hasher = PasswordHasher()
 
 
+def hash_pw(password: str) -> str:
+    return hasher.hash(password)
+
+
 def password_compare(db_pw_hash, password) -> bool:
     """
     Compare a database password hash to a plaintext password
