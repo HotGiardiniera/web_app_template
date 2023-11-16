@@ -17,11 +17,15 @@ cachetools==5.3.2
 certifi==2023.7.22
     # via requests
 cffi==1.16.0
-    # via argon2-cffi-bindings
+    # via
+    #   argon2-cffi-bindings
+    #   cryptography
 charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via flask
+cryptography==41.0.5
+    # via -r requirements.in
 flask==3.0.0
     # via
     #   -r requirements.in
@@ -63,6 +67,8 @@ pydantic==2.4.2
 pydantic-core==2.10.1
     # via pydantic
 pydantic-settings==2.0.3
+    # via -r requirements.in
+pyjwt==2.8.0
     # via -r requirements.in
 python-dotenv==1.0.0
     # via pydantic-settings
